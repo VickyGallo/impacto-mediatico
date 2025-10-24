@@ -12,12 +12,10 @@ body {
   background: white;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-h1, h2 {
-  text-align: center;
-}
+h1, h2 { text-align: center; }
 
 form {
   display: flex;
@@ -35,26 +33,112 @@ button {
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s ease;
 }
 
 button:hover {
   background: #0056b3;
 }
 
-.hidden {
-  display: none;
-}
+.hidden { display: none; }
 
 #statusMessage {
-  margin-top: 15px;
+  margin-top: 10px;
   text-align: center;
   font-weight: bold;
 }
 
-.success {
-  color: #28a745;
+.success { color: #28a745; }
+.error { color: #dc3545; }
+
+#jsonOutput {
+  margin-top: 20px;
 }
 
-.error {
-  color: #dc3545;
+.metric-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.metric-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.metric-bar {
+  height: 10px;
+  border-radius: 5px;
+  background: #e0e0e0;
+  overflow: hidden;
+}
+
+.metric-fill {
+  height: 100%;
+  border-radius: 5px;
+}
+
+.metric-fill.green { background: #28a745; }
+.metric-fill.orange { background: #ffc107; }
+.metric-fill.red { background: #dc3545; }
+
+#toggleDetails {
+  margin-top: 20px;
+  width: 100%;
+  background: #6c757d;
+}
+
+#toggleDetails:hover {
+  background: #5a6268;
+}
+
+#rawJson {
+  background: #1e1e1e;
+  color: #eaeaea;
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 13px;
+}
+.secondary-btn {
+  margin-top: 10px;
+  width: 100%;
+  background: #17a2b8;
+}
+
+.secondary-btn:hover {
+  background: #138496;
+}
+
+#comparison {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #eef6fa;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.compare-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.compare-card {
+  flex: 1;
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.compare-card h4 {
+  text-align: center;
+  margin-bottom: 10px;
 }
