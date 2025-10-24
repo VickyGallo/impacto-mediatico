@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evaluador de Impacto de Prensa</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>📊 Evaluador de Impacto Mediático</h1>
+
+      <form id="pressForm">
+        <label>Organización</label>
+        <input type="text" id="organization" required />
+
+        <label>Tema / Título</label>
+        <input type="text" id="topic" required />
+
+        <label>Fecha de publicación (opcional)</label>
+        <input type="date" id="date" />
+
+        <button type="submit">Analizar</button>
+      </form>
+
+      <div id="result" class="hidden">
+        <h2>Resultados del Análisis</h2>
+        <div id="statusMessage"></div>
+        <pre id="jsonOutput"></pre>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
