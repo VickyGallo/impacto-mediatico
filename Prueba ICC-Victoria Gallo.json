@@ -1,0 +1,106 @@
+{
+  "name": "Prueba ICC-Victoria Gallo",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "analyze-press",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "7956a8fe-f021-47dd-8c66-3c871e35f686",
+      "name": "Webhook",
+      "webhookId": "7ec507b4-a3b8-4036-93f4-f65819155ee2"
+    },
+    {
+      "parameters": {
+        "url": "https://script.google.com/macros/s/AKfycbyPP_fxSfu6vajpZG_0VNVggSA0eIoW38kSCG1a2zA5UlB9dsNoQn8gGf1UZ9l8oMIQJg/exec",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "action",
+              "value": "getData"
+            },
+            {
+              "name": "limit",
+              "value": "50"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "80c4c873-ab55-4ada-a81c-d7f8d6719b54",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "4818d7be-edb2-4438-bbfe-4d853faa856b",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "56a2f7e8-c5e3-4273-987a-30a9d464803a",
+  "meta": {
+    "instanceId": "6816fcd45df71863e98352f4e2ca8bf6a9d2908b4f62edaf9d5f737e16174961"
+  },
+  "id": "Gt6657xjZytZP5Dk",
+  "tags": []
+}
