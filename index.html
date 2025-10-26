@@ -3,13 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Evaluador de Impacto de Prensa</title>
+    <title>Evaluador de Impacto Mediático</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
+    <header>
       <h1>📊 Evaluador de Impacto Mediático</h1>
-
+      <p>Analiza y compara el rendimiento de tus notas de prensa</p>
+    </header>
+    <div class="container">
       <form id="pressForm">
         <label>Organización</label>
         <input type="text" id="organization" required />
@@ -22,7 +24,6 @@
 
         <button type="submit">Analizar</button>
       </form>
-
       <div id="result" class="hidden">
         <h2>Resultados del Análisis</h2>
         <div id="statusMessage"></div>
@@ -32,12 +33,20 @@
         <pre id="rawJson" class="hidden"></pre>
 
         <hr />
-        <button id="saveResult" class="secondary-btn hidden">Guardar resultado 🧩</button>
-        <button id="compareResults" class="secondary-btn hidden">Comparar resultados ⚖️</button>
+        <button id="saveResult" class="secondary-btn hidden">
+          Guardar resultado 🧩
+        </button>
+        <button id="compareResults" class="secondary-btn hidden">
+          Comparar resultados ⚖️
+        </button>
 
         <div id="comparison" class="hidden"></div>
       </div>
     </div>
+
+    <footer>
+      <p>Desarrollado por <b>Victoria Gallo</b> · Proyecto Evaluador ICC · 2025</p>
+    </footer>
 
     <script src="app.js"></script>
   </body>

@@ -1,45 +1,35 @@
 # 📊 Evaluador de Impacto Mediático
+Proyecto de prueba técnica - Octubre 2025
 
-Proyecto desarrollado como parte del desafío técnico de integración con **n8n**, **Google Apps Script** y un **frontend en HTML + CSS + JavaScript**.
+## 🎯 Descripción
+Aplicación web desarrollada para analizar el impacto mediático de notas de prensa mediante un flujo automatizado con **n8n** y un frontend simple en **HTML, CSS y JavaScript**.
 
----
-
-## 🚀 Descripción General
-
-Este proyecto permite analizar el impacto mediático de notas de prensa utilizando un flujo automatizado en **n8n** conectado a una API de Google Sheets.
-
-**Flujo general:**
-
-1. El usuario completa el formulario con:
-   - Organización
-   - Tema o título de la nota
-   - Fecha de publicación (opcional)
-
-2. El frontend envía los datos vía `POST` al webhook de n8n.
-
-3. n8n consulta la API de Google Script y devuelve un JSON con métricas de análisis.
-
-4. El front muestra el resultado con resumen e indicadores visuales.
+El sistema consulta datos desde un endpoint (Google Apps Script) y devuelve métricas como:
+- Cobertura mediática (%)
+- Alcance estimado (personas impactadas)
+- Duración (días en agenda)
+- Engagement (%)
+- Resultado global visual (verde/amarillo/rojo)
 
 ---
 
-## 🧩 Arquitectura
-
-**Frontend:**  
-- HTML + CSS + JavaScript Vanilla  
-- `fetch()` → webhook n8n  
-- Visualización simple y responsiva
-
-**Backend (n8n):**
-- Webhook (POST)
-- HTTP Request → Google Script
-- Respond to Webhook (200)
-
-**API externa:**  
-Google Apps Script que expone los datos de Google Sheets  
-([documentación incluida en `endpoint_documentation.md`](endpoint_documentation.md))
+## 🧠 Tecnologías utilizadas
+- **Frontend:** HTML5, CSS3, JavaScript (Fetch API)
+- **Automatización:** n8n
+- **Endpoint:** Google Apps Script (GET → JSON)
+- **Comunicación:** Webhook POST / Respond to Webhook
 
 ---
 
-## 📂 Estructura del Proyecto
+## ⚙️ Flujo de trabajo
+1. **Webhook (POST)** recibe los datos del formulario.  
+2. **HTTP Request (GET)** consulta el endpoint de datos.  
+3. **Respond to Webhook** devuelve el análisis al frontend.  
+4. El frontend muestra métricas visuales y permite comparar resultados.
 
+---
+
+## 💻 Ejecución local
+1. Instalar y abrir n8n:
+   ```bash
+   n8n

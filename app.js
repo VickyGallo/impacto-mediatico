@@ -20,7 +20,7 @@ document.getElementById("pressForm").addEventListener("submit", async (e) => {
 
     const json = await response.json();
 
-    const metricas = calcularIndicadores(json);
+    const metricas = json;
 
     mostrarResultados(metricas);
 
