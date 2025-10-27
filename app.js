@@ -18,7 +18,7 @@ document.getElementById("pressForm").addEventListener("submit", async (e) => {
 
     if (!response.ok) throw new Error("Error en el servidor");
 
-    const metricas = await response.json(); // ✅ usamos el JSON real que devuelve n8n
+    const metricas = await response.json();
 
     mostrarResultados(metricas);
 
@@ -83,8 +83,6 @@ function mostrarResultados(m) {
 
   rawJson.textContent = JSON.stringify(m, null, 2);
 }
-
-/* ====== Comparador ====== */
 let resultadosGuardados = [];
 
 const saveBtn = document.getElementById("saveResult");
