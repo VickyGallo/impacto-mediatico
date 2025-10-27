@@ -4,8 +4,8 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "analyze-press",
-        "responseMode": "responseNode",
+        "path": "/analyze-press",
+        "responseMode": "lastNode",
         "options": {}
       },
       "type": "n8n-nodes-base.webhook",
@@ -14,9 +14,9 @@
         0,
         0
       ],
-      "id": "7956a8fe-f021-47dd-8c66-3c871e35f686",
+      "id": "de3b0c36-885c-400e-adf3-f4d35caa4fd0",
       "name": "Webhook",
-      "webhookId": "7ec507b4-a3b8-4036-93f4-f65819155ee2"
+      "webhookId": "f253a37c-f3e9-4d8e-9829-67894ccfaf8d"
     },
     {
       "parameters": {
@@ -34,13 +34,7 @@
             }
           ]
         },
-        "options": {
-          "response": {
-            "response": {
-              "responseFormat": "json"
-            }
-          }
-        }
+        "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
@@ -48,24 +42,21 @@
         208,
         0
       ],
-      "id": "80c4c873-ab55-4ada-a81c-d7f8d6719b54",
+      "id": "a67d8d11-0ffa-4970-8e02-87e3c50f8481",
       "name": "HTTP Request"
     },
     {
       "parameters": {
-        "respondWith": "allIncomingItems",
-        "options": {
-          "responseCode": 200
-        }
+        "jsCode": "const datosHojaCalculo = $json; \nconst numRegistros = datosHojaCalculo.data ? datosHojaCalculo.data.length : 0; \nconst cobertura = numRegistros * 2; \nconst alcance = numRegistros * 1000;\nconst duracion = 15;\nconst engagement = Math.floor(Math.random() * 100); \n\nreturn [\n  {\n    json: {\n      cobertura: cobertura,  \n      alcance: alcance,      \n      duracion: duracion,    \n      engagement: engagement\n    }\n  }\n];"
       },
-      "type": "n8n-nodes-base.respondToWebhook",
-      "typeVersion": 1.4,
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
       "position": [
         416,
         0
       ],
-      "id": "4818d7be-edb2-4438-bbfe-4d853faa856b",
-      "name": "Respond to Webhook"
+      "id": "b93a168e-8d90-4cb5-813c-5b7152ffc894",
+      "name": "Code in JavaScript"
     }
   ],
   "pinData": {},
@@ -85,11 +76,16 @@
       "main": [
         [
           {
-            "node": "Respond to Webhook",
+            "node": "Code in JavaScript",
             "type": "main",
             "index": 0
           }
         ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        []
       ]
     }
   },
@@ -97,10 +93,10 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "56a2f7e8-c5e3-4273-987a-30a9d464803a",
+  "versionId": "fda8cd28-c417-4d59-b374-3af2bb74c53d",
   "meta": {
     "instanceId": "6816fcd45df71863e98352f4e2ca8bf6a9d2908b4f62edaf9d5f737e16174961"
   },
-  "id": "Gt6657xjZytZP5Dk",
+  "id": "KRivCWAOhg9iTnrN",
   "tags": []
 }
